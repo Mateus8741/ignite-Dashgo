@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form'
 import * as yup from 'yup'
 import { yupResolver } from '@hookform/resolvers/yup'
 import { useRouter } from 'next/router'
+import { Logo } from '@/components/Header/Logo'
 
 interface SignInFormData {
   email: string
@@ -35,42 +36,52 @@ export default function SignIn() {
   }
 
   return (
-    <Flex w="100vw" h="100vh" align="center" justify="center">
+    <>
       <Flex
-        as="form"
-        w="100%"
-        maxWidth={360}
-        bg="gray.800"
-        p="8"
-        borderRadius={8}
-        flexDir="column"
-        onSubmit={handleSubmit(handleSignIn)}
+        w="100vw"
+        h="100vh"
+        align="center"
+        justify="center"
+        direction="column"
       >
-        <Stack spacing="4">
-          <Input
-            type="email"
-            label="E-mail"
-            {...register('email')}
-            error={errors.email}
-          />
-          <Input
-            type="password"
-            label="Senha"
-            {...register('password')}
-            error={errors.password}
-          />
-        </Stack>
-
-        <Button
-          type="submit"
-          mt={6}
-          size="lg"
-          colorScheme="pink"
-          isLoading={isLoading}
+        <Logo />
+        <Flex
+          as="form"
+          w="100%"
+          maxWidth={360}
+          bg="gray.800"
+          p="8"
+          borderRadius={8}
+          flexDir="column"
+          onSubmit={handleSubmit(handleSignIn)}
         >
-          Entrar
-        </Button>
+          <Stack spacing="4">
+            <Input
+              type="email"
+              label="E-mail"
+              placeholder="Digite seu e-mail"
+              {...register('email')}
+              error={errors.email}
+            />
+            <Input
+              type="password"
+              label="Senha"
+              {...register('password')}
+              error={errors.password}
+            />
+          </Stack>
+
+          <Button
+            type="submit"
+            mt={6}
+            size="lg"
+            colorScheme="pink"
+            isLoading={isLoading}
+          >
+            Entrar
+          </Button>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   )
 }
