@@ -40,20 +40,16 @@ export default function UsersList() {
               Usuários
             </Heading>
 
-            <Link href="/users/create" passHref>
-              <Button
-                as="a"
-                size="sm"
-                fontSize="sm"
-                colorScheme="pink"
-                leftIcon={<Icon as={RiAddLine} fontSize="20" />}
-                _hover={{
-                  cursor: 'pointer',
-                }}
-              >
-                Criar novo
-              </Button>
-            </Link>
+            <Button
+              as={Link}
+              size="sm"
+              fontSize="sm"
+              colorScheme="pink"
+              leftIcon={<Icon as={RiAddLine} fontSize="20" />}
+              href="/users/create"
+            >
+              Criar novo
+            </Button>
           </Flex>
 
           <Table colorScheme="whiteAlpha" w={['100%']}>
